@@ -3,9 +3,11 @@ package com.team.minhthanh.oanquanlite;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -29,8 +31,12 @@ public class SecondActivity extends AppCompatActivity {
         byte turn = 1;
         do {
             setClickables(turn);
+            if (Square.squareIsPressed) {
+                buttonRight.setClickable(true);
+                buttonLeft.setClickable(true);
+                textPrompt.setText("you press square " + Square.id_static);
 
-
+            }
         }
         while (!checkWinner());
     }
@@ -53,6 +59,7 @@ public class SecondActivity extends AppCompatActivity {
         squareArrayList = new ArrayList<>();
         squareArrayList.add(new Square());
         squareArrayList.add(new Square((ImageView) findViewById(R.id.position1), 5));
+        ;
         squareArrayList.add(new Square((ImageView) findViewById(R.id.position2), 5));
         squareArrayList.add(new Square((ImageView) findViewById(R.id.position3), 5));
         squareArrayList.add(new Square((ImageView) findViewById(R.id.position4), 5));
